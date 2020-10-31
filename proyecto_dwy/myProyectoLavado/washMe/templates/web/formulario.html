@@ -1,0 +1,61 @@
+{% extends "web/base.html" %} {% load static %} {% block contenido %}
+<section id="banner">
+    <img src="{% static 'img/index/Acompleto.jpg' %}" alt="" height="550">
+    <div class="contenedor">
+        <h1>Formularios</h1>
+        {% if user.is_authenticated %}
+        <p>Bienvenido : {{user.first_name}} {{user.last_name}}</p>
+        {% endif %}
+    </div>
+</section>
+<section id="Bienvenida">
+    <h1>Formulario de registro: {{msg}}</h1>
+    <p></p>
+</section>
+
+<section>
+
+    <div class="" style="padding: 100px;" id="formulario">
+
+        <script src="{% static 'cliente/script.js' %}"></script>
+
+        <form action="" method="POST" onsubmit="validarFormulario()">
+            {% csrf_token %}
+
+            <label for="txtNombre">Nombres del clientes:</label>
+            <input type="text" name="txtNombre" id="txtNombre" minlength="3" maxlength="80" required>
+
+            <label for="txtDueno">Apellidos del clientes:</label>
+            <input type="text" name="txtapellido" id="txtapellido" minlength="3" maxlength="80" required>
+
+            <label for="txtDueno">Email del cliente :</label>
+            <input type="email" name="txtEmail" id="txtEmail" required>
+
+
+
+            <label for="txtEdad">Nombre de usuario:</label>
+            <input type="text" name="txtNombreusuario" id="txtNombreusuario" minlength="8" required>
+
+            <label for="txtPass1">Contraseña:</label>
+            <input type="password" name="txtPass1" id="txtPass1" minlength="8" required>
+            <label for="txtPass2">Repita Contraseña:</label>
+            <input type="password" name="txtPass2" id="txtPass2" minlength="8" required>
+
+            <input class="btn btn-verde" type="submit" name="btnEnviar" id="btnEnviar">
+            <input class="btn btn-rojo" type="reset" name="btnLimpiar" id="btnLimpiar">
+
+        </form>
+    </div>
+    <div class="f-insumos">
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'FORMULARIO_INSUMO' %}" class="btn btn-azul">Ingreso de Insumos</a>
+
+
+    </div>
+
+
+</section>
+
+{% endblock contenido %}

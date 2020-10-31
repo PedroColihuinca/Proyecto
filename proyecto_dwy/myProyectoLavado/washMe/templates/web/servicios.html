@@ -1,0 +1,80 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+
+    {% block contenido %}
+
+        <link rel="stylesheet" href="css/comentarioStyle.css">
+        <section id="banner">
+            <img src="{% static 'img/index/Acompleto.jpg' %}" alt="" height="550">
+            <div class="contenedor">
+                <h1>Servicios</h1>
+                <p>¡servicios a nuestra disposicion!</p>
+                {% if user.is_authenticated %}
+                <p>Bienvenido : {{user.first_name}} {{user.last_name}}</p>
+                {% endif %}
+            </div>
+        </section>
+        <section id="Bienvenida">
+            <center>
+                <h1>¡Bienvenido!</h1>
+                <br>
+                <br>
+                <a href="{% url 'INDEX' %}" class="btn-p1">
+                    <h1>Volver</h1>
+                </a>
+            </center>
+
+        </section>
+        <section id="blog">
+            <h2>Tipos de lavados</h2>
+            <div class="contenedor">
+                <div>
+                    <img src="{% static 'img/index/lavado.jpg' %}" alt="">
+                    <h4>Lavado Exteriores</h4>
+                    <ul>
+                        <h5>Incluye lo siguiente:</h5>
+                        <li>Limpieza de Vidrios</li>
+                        <li>Limpieza de espejos</li>
+                        <li>Limpieza de carrocería</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="{% static 'img/index/tapiz.jpg' %}" alt="">
+                    <h4>Limpieza interior</h4>
+                    <ul>
+                        <h5>Incluye lo siguiente:</h5>
+                        <li>Limpieza de tapiz</li>
+                        <li>Aspirado full interior</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="{% static 'img/index/pulido.jpg' %}" alt="">
+                    <h4>Pulido Exterior</h4>
+                    <ul>
+                        <h5>Incluye lo siguiente:</h5>
+                        <li>Pulido delantero</li>
+                        <li>Pulido de focos</li>
+                        <li>Pulido de carrocería</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="{% static 'img/index/Acompleto.jpg' %}" alt="">
+                    <h4>Servicio Full</h4>
+                    <ul>
+                        <h5>Incluye lo siguiente:</h5>
+                        <li>Servicio de limpieza exterior</li>
+                        <li>Servicio de limpieza interior</li>
+                        <li>Pulido Exterior</li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+    {% endblock contenido %}

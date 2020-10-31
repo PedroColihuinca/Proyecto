@@ -1,0 +1,25 @@
+#blog h2,h4{
+    text-align: center;
+    
+}
+#blog h3{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#blog .contenedor{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#blog .contenedor img{
+    width: 450px;
+    height: 450px;
+    border-radius: 80px;
+    border: solid 10px white;
+    
+}
+
+#blog .contenedor img:hover{
+    transform: scale(1.03);
+}

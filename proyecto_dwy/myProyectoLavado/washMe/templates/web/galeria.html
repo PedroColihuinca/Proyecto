@@ -1,0 +1,138 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+
+    {% block contenido %}
+        <link rel="stylesheet" href="{% static 'css/sliderGaleria.css' %}">
+        <section id="banner">
+            <img src="{% static 'img/index/Acompleto.jpg' %}" alt="" height="550">
+            <div class="contenedor">
+                <h1>Nuestra Galeria</h1>
+                {% if user.is_authenticated %}
+                <p>Bienvenido : {{user.first_name}} {{user.last_name}}</p>
+                {% endif %}
+            </div>
+        </section>
+        <section id="Bienvenida">
+            <center>
+                <h1>Nuestras instalaciones e implementos</h1>
+            </center>
+        </section>
+
+
+        <section id="blog">
+
+            <div class="contenedor">
+                <div>
+                    <img src="{% static 'img/galeria/lavado.jpg' %}" alt="">
+                    <h5>Lavados</h5>
+                    <ul>
+                        <li>Contamos con los mejores lavados de la ciudad</li>
+                        <li>Mucho mas eficientes y rápidos</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="{% static 'img/galeria/estacionamiento.jpg' %}" alt="">
+                    <h5>Estacionamiento</h5>
+                    <ul>
+                        <li>Estacionamiento con gran espacio</li>
+                        <li>Hay para cada tipo de vehiculo</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="{% static 'img/galeria/kit.jpg' %}" alt="">
+                    <h5>Herramientas</h5>
+                    <ul>
+                        <li>Contamos con lo necesario para el cuidado de tu vehículo</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="Bienvenida">
+            <br>
+            <center>
+                <h1>Imagenes</h1>
+            </center>
+        </section>
+
+        <!--SLIDER-->
+        <!--/*FORMATO DE IMAGENES 744X400*/-->
+        <div id="slider">
+            <input type="radio" name="slider" id="slide1" checked>
+            <input type="radio" name="slider" id="slide2">
+            <input type="radio" name="slider" id="slide3">
+            <input type="radio" name="slider" id="slide4">
+            <input type="radio" name="slider" id="slide5">
+            <input type="radio" name="slider" id="slide6">
+            <div id="slides">
+                <div id="overflow">
+                    <div class="inner">
+
+                        <!--CICLO DE IMAGENES-->
+                        {% for item in imagenes %}
+                        <div class="slide">
+                            <div class="slide-content">
+                                <img src="{{item.foto.url}}" alt="">
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!--END CICLO DE IMAGENES-->
+                    </div>
+                </div>
+            </div>
+            <div id="controls">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+                <label for="slide4"></label>
+                <label for="slide5"></label>
+                <label for="slide6"></label>
+            </div>
+            <div id="bullets">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+                <label for="slide4"></label>
+                <label for="slide5"></label>
+                <label for="slide6"></label>
+            </div>
+        </div>
+
+
+
+
+        <!--COMENTARIOS-->
+        <div class="wrapper">
+            <h1>Comentarios</h1>
+            <div class="team">
+                <div class="team_member">
+                    <div class="team_img">
+                        <img src="{% static 'img/comentarios/willy_c.png' %}" alt="Team_image">
+                    </div>
+                    <h3>Willy</h3>
+                    <p class="role">Youtuber</p>
+                    <p>Madre mia que buen servicio tio, no me lo creo, no me lo creo.</p>
+                </div>
+                <div class="team_member">
+                    <div class="team_img">
+                        <img src="{% static 'img/comentarios/peru_c.png' %}" alt="Team_image">
+                    </div>
+                    <h3>Juan Perez</h3>
+                    <p class="role">The peruvian</p>
+                    <p>Excelente servicio!</p>
+                </div>
+                <div class="team_member">
+                    <div class="team_img">
+                        <img src="{% static 'img/comentarios/tyler_c.png' %}" alt="Team_image">
+                    </div>
+                    <h3>Tyler1</h3>
+                    <p class="role">Draven main</p>
+                    <p>aAasdsad</p>
+                </div>
+            </div>
+        </div>
+    {% endblock contenido %}

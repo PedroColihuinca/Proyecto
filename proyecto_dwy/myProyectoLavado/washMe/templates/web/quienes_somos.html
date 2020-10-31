@@ -1,0 +1,46 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+
+    {% block contenido %}
+        <section id="banner">
+            <img src="{% static 'img/index/Acompleto.jpg' %}" alt="" height="550">
+            <div class="contenedor">
+                <h1>¿Quienes somos?</h1>
+                <p>Nuestra Mision y Vision</p>
+                {% if user.is_authenticated %}
+                <p>Bienvenido : {{user.first_name}} {{user.last_name}}</p>
+                {% endif %}
+            </div>
+        </section>
+        <section id="Titulo" class="title">
+            <h1>¿Por qué elegir nuestros servicios?</h1>
+
+            <p></p>
+        </section>
+        <section id="Somos" class="border-info">
+            <div class="Eleccion">
+                <p>Somos una empresa dedicada al servicio de lavado de autos, enfocados 100% en brindar el mejor servicio a nuestros clientes.</p>
+                <p>Sabemos entregar los mejores resultados para cumplir con cada expectativa.</p>
+                <p>Contamos con las herramientas necesarias para cada situación y tipo de vehículo.</p>
+            </div>
+
+            <br>
+            {% for item in lista %}
+            <div class="Mision">
+
+                <h1>Mision</h1>
+                <p>{{item.mision}}</p>
+                
+            </div>
+            <br>
+            <br>
+
+            <div class="Vision">
+                <h1>Vision</h1>
+                <p>{{item.vision}}</p>
+            </div>
+            <br>
+            {% endfor %}
+        </section>
+    {% endblock contenido %}

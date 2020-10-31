@@ -1,0 +1,96 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wash Me!</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/comentarioStyle.css' %}">
+    
+
+</head>
+
+<body>
+    <header>
+        <div class="contenedor">
+            <input type="checkbox" name="" id="menu_bar">
+            <label for="menu_bar">Wash Me!</label>
+            <img src="{% static 'img/index/008-car service.png' %}" alt="" height="30" style="margin-top: 10px;">
+            <nav class="menu">
+                <a href="{% url 'INDEX' %}">Inicio</a>
+                <a href="{% url 'GALERIA' %}">Galeria</a>
+                <a href="{% url 'FORMULARIO' %}">Formulario</a>
+                <a href="{% url 'QUIENES_SOMOS' %}">Quienes Somos</a>
+                <a href="{% url 'UBICACION' %}">Ubicación</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'LOGOUT' %}">Cerrar Sesion</a>
+                {% else %}
+                <a href="{% url 'LOGIN' %}">login</a>
+                 {% endif %}
+            </nav>
+        </div>
+    </header>
+    <main>
+
+        {% block contenido %}
+        
+        {% endblock contenido %}
+
+    </main>
+
+
+    <!--FOOTER-->
+    <footer class="footer">
+        <div class="l-footer">
+            <h1>
+                <img src="{% static 'img/index/023-car.png' %}" style="width: 50px; height: 50px;" alt="">
+            </h1>
+            
+        </div>
+        <ul class="r-footer">
+            <li>
+                <h2>
+                    Social</h2>
+                <ul class="box">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Fotolog</a></li>
+                </ul>
+            </li>
+            <li class="features">
+                <h2> Horario de atención</h2>
+                
+                <ul class="box " style="color: rgb(146, 146, 146);">
+                    <li>Lunes a Viernes de 9:00Hrs. a 20:00Hrs.</li>
+                    <li>Sabado de 9:00Hrs. a 18:00Hrs</li>           
+                    
+                </ul>
+                
+            </li>
+            <li class="features">
+                <h2> Información de contacto </h2>
+                
+                <ul class="box " style="color: rgb(146, 146, 146);">
+                    <li>Número: +569 49517240</li>
+                    <li>Email: washme@gmail.com</li>
+                </ul>
+                
+            </li>
+            
+            
+        </ul>
+        <div class="b-footer">
+            <p>
+                Todos los derechos reservados por @WashMe! 2020
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

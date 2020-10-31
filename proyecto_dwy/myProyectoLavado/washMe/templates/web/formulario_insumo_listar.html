@@ -1,0 +1,76 @@
+{% extends "web/base.html" %} {% load static %} {% block contenido %}
+
+<section id="banner">
+    <img src="{% static 'img/index/Acompleto.jpg' %}" alt="" height="550">
+    <div class="contenedor">
+        <h1>Formularios</h1>
+        {% if user.is_authenticated %}
+        <p>Bienvenido : {{user.first_name}} {{user.last_name}}</p>
+        {% endif %}
+    </div>
+</section>
+<section id="Bienvenida">
+    <h1>Listado de Insumos : {{msg}}</h1>
+    <p></p>
+</section>
+
+<section>
+
+    <div id="formulario">
+        <script>
+            function eliminar(insumo) {
+                var msg;
+                var opcion = confirm("Desea eliminar el producto " + insumo + "?");
+                if (opcion == true) {
+                    location.href = '/eliminar_in/' + insumo + '/';
+                } else {
+                    msg = "Cancelado";
+                    alert(msg);
+                }
+            }
+
+            function actualizar(insumo) {
+                location.href = '/buscar_in/' + insumo + '/';
+            }
+        </script>
+
+
+        <table border="3">
+            <tr>
+                <td>Nombre</td>
+                <td>Precio</td>
+                <td>Descripcion</td>
+                <td>Stock</td>
+                <td>Operaciones</td>
+
+            </tr>
+
+            {% for item in listar_insumos %}
+            <tr>
+                <td>{{item.nombre}}</td>
+                <td>{{item.precio}}</td>
+                <td>{{item.descripcion}}</td>
+                <td>{{item.stock}}</td>
+                <td> <input type="button" value="Eliminar" onclick="eliminar('{{item.nombre}}')">/ <input type="button" value="Actualizar" onclick="actualizar('{{item.nombre}}')"></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+    </div>
+    <div class="f-insumos">
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'LISTAR' %}" class="btn btn-azul">Recargar</a>
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'FORMULARIO_INSUMO' %}" class="btn btn-azul">Registro de Insumos</a>
+
+
+    </div>
+
+
+</section>
+{% endblock contenido %}

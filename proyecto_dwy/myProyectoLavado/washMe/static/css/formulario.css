@@ -1,0 +1,59 @@
+input[type="text"],
+input[type="date"],
+input[type="file"],
+input[type="email"],
+input[type="number"],
+input[type="password"] {
+    width: 100%;
+    border-radius: 5px;
+    padding: 12px;
+    border: 1px solid rgb(184, 181, 181);
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+label {
+    font-size: 20px;
+}
+
+#formulario {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.btn {
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-verde {
+    background-color: rgb(46, 172, 42);
+    margin-right: 10px;
+}
+
+.btn-verde:hover {
+    background-color: rgb(22, 75, 20);
+}
+
+.btn-rojo {
+    background-color: rgb(219, 57, 57);
+}
+
+.btn-rojo:hover {
+    background-color: rgb(87, 19, 19);
+}
+
+.btn-azul {
+    background-color: rgb(57, 87, 219);
+}
+
+.btn-azul:hover {
+    background-color: rgb(19, 20, 87);
+}

@@ -1,0 +1,60 @@
+{% extends "web/base.html" %} {% load static %} {% block contenido %}
+
+<section id="banner">
+    <img src="{% static 'img/index/Acompleto.jpg' %}" alt="" height="550">
+    <div class="contenedor">
+        <h1>Formularios</h1>
+        {% if user.is_authenticated %}
+        <p>Bienvenido : {{user.first_name}} {{user.last_name}}</p>
+        {% endif %}
+    </div>
+</section>
+<section id="Bienvenida">
+    <h1>Modificacion de Insumos</h1>
+    <p></p>
+</section>
+
+<section>
+
+    <div id="formulario">
+
+        <script src="cliente/scrip.js"></script>
+
+        <form action="{% url 'MODIFICAR' %}" method="POST">
+            {% csrf_token %}
+            <label for="txtNombre">Nombre:</label>
+            <input type="text" name="txtnombre" id="txtNombre" value="{{insumo.nombre}}" minlength="3" maxlength="120" required >
+            <label for="txtPrecio">Precio:</label>
+            <input type="number" name="txtprecio" id="txtPrecio" value="{{insumo.precio}}" min="1" required>
+            <label for="txtDescripcion">Descripcion:</label>
+            <input type="text" name="txtdescripcion" id="txtdescripcion" value="{{insumo.descripcion}}" minlength="3" maxlength="200">
+            <label for="txtStock">Stock:</label>
+            <input type="number" name="txtStock" id="txtStock" value="{{insumo.stock}}" min="0" required>
+
+
+            <input class="btn btn-verde" type="submit" name="btnEnviar" id="btnEnviar" value="Modificar">
+            <input class="btn btn-rojo" type="reset" name="btnLimpiar" id="btnLimpiar">
+            <button onclick="validaRut()">validar</button>
+
+        </form>
+    </div>
+    <div class="f-insumos">
+        <script>
+            function ir() {
+                location.href = '/formulario_insumo_listar/';
+            }
+        </script>
+        <br>
+        <br>
+        <input type="button" onclick="ir()" value="Listar Insumos" class="btn btn-azul">
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'FORMULARIO' %}" class="btn btn-azul">Registro de usuario</a>
+
+
+    </div>
+
+
+</section>
+{% endblock contenido %}

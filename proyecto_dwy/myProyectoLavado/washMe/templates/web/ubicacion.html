@@ -1,0 +1,49 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+
+    {% block contenido %}
+    <main class="main">
+        <section id="banner">
+            <img src="{% static 'img/index/Acompleto.jpg' %}" alt="" height="550">
+            <div class="contenedor">
+                <h1>Ubicación</h1>
+                {% if user.is_authenticated %}
+                <p>Bienvenido : {{user.first_name}} {{user.last_name}}</p>
+                {% endif %}
+                
+            </div>
+        </section>
+
+        <div class="contenido">
+
+
+
+            <section id="Bienvenida" class="bienvenida">
+                <h1>¡Encuéntranos!</h1>
+
+            </section>
+
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28180.780462539453!2d-70.61325328784116!3d-33.55625173305682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d0ba6812c077%3A0xd508167ccdf07712!2sLapizlazuli%2010528%2C%20La%20Florida%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1sen!2scl!4v1601081430447!5m2!1sen!2scl"
+                    width="100%" height="100%" frameborder="8" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+            </div>
+
+            <div id="Info" class="info">
+
+                <div class="Comentarios">
+                    <h1>Ubicación</h1>
+                    <p>Actualmente nos encontramos en la siguente dirección:</p>
+                    <p>Lapislázuli 1334, La Florida, Región Metropolitana.</p>
+                    <h1>Imagen</h1>
+
+                </div>
+                <div class="image-reference">
+                    <img src="{% static 'img/ubicacion/img-ref2.png' %}" alt="" class="img-lo">
+                </div>
+
+            </div>
+        </div>
+
+    {% endblock contenido %}
